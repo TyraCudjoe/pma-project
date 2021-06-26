@@ -120,13 +120,5 @@ class PmaSeeder extends Seeder
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
-        // DB::table('user')->insert([
-        //     'name' => 'aron',
-        //     'email' => 'aron@vanderidder.com',
-        //     'wachtwoord' => 'drerrie',
-        //     'leerjaar'  => 1,
-        //     'created_at' => date('Y-m-d H:i:s'),
-        //     'updated_at' => date('Y-m-d H:i:s'),
-        // ]);
     }
 }

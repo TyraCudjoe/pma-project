@@ -28,10 +28,10 @@ class CursusController extends Controller
     public function create()
     {
         $klassen = DB::table('klassen')->get()->pluck('name', 'id')->prepend('none');
-        $leerjaar = DB::table('leerlingen')->get()->pluck('leerjaar', 'id');
+        $docenten = DB::table('docenten')->get()->pluck('name', 'id')->prepend('none');
         return view('cursussen.create')
             ->with('klassen', $klassen)
-            ->with('leerlingen', $leerjaar);
+            ->with('docenten', $docenten);
         }
 
     /**
@@ -44,15 +44,13 @@ class CursusController extends Controller
     {
         $id = DB::table('cursussen')->insertGetId([
             'naam_cursus' => $request->input('naam_cursus'),
-            'klassen' => $request->input('klassen'),
             'start' => $request->input('start'),
             'end' => $request->input('end'),
             'commentaar' => $request->input('commentaar'),
 
         ]);
         DB::table('cursus_users')->insert([
-            'cursus_id' => $id,
-            'docent_id' => $request->input('docent_id')
+            'cursus_id' => $id
         ]);
         return redirect()->action('CursusController@index');
     }

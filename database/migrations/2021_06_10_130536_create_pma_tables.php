@@ -34,7 +34,7 @@ class CreatePmaTables extends Migration
         Schema::dropIfExists('cursussen');
         Schema::create('cursussen', function (Blueprint $table) {
             $table->bigIncrements('id')->comment('De primary key van deze tabel');
-            $table->string('naam_cursus')->index('naam_cursus')->comment('Naam van de cursus');
+            $table->text('naam_cursus')->nullable()->comment('Naam van de cursus');
             $table->date('start')->comment('Start datum van cursus');
             $table->date('end')->comment('Eind datum van cursus');
             // $table->string('leerjaar')->index('leerjaar')->comment('1e of 2e klas');
@@ -42,7 +42,7 @@ class CreatePmaTables extends Migration
             $table->boolean('is_afgerond')->default(false)->comment('Als deze les is afgerond');
             $table->text('commentaar')->nullable()->comment('Eventuele commentaar van de leraar');
             $table->timestamps();
-            $table->softDeletes();    
+            $table->softDeletes();           
         });        
 
         Schema::dropIfExists('opdrachten_jaar1_sd_web');
@@ -108,7 +108,7 @@ class CreatePmaTables extends Migration
         Schema::create('cursus_users', function (Blueprint $table) {
             $table->bigIncrements('id')->comment('De primary key van deze tabel');
             $table->unsignedBigInteger('cursus_id')->index('cursus_id')->comment('De aangemaakte cursus');
-            $table->unsignedBigInteger('docent_id')->index('docent_id')->comment('ID van de docent');
+            // $table->unsignedBigInteger('docent_id')->index('docent_id')->comment('ID van de docent');
             // $table->unsignedBigInteger('leerlingen_id')->index('leerlingen_id')->comment('ID van de leerlingen');
             $table->timestamps();
 
@@ -116,7 +116,7 @@ class CreatePmaTables extends Migration
             // $table->foreign('opdrachten_id2')->references('id')->on('opdrachten_jaar2');
             $table->foreign('cursus_id')->references('id')->on('cursussen');
             // $table->foreign('cursus_id2')->references('id')->on('cursus_jaar2');
-            $table->foreign('docent_id')->references('id')->on('docenten');
+            // $table->foreign('docent_id')->references('id')->on('docenten');
             // $table->foreign('leerlingen_id')->references('id')->on('leerlingen');
             // $table->foreign('opleidingen_id')->references('id')->on('opleidingen');
         });

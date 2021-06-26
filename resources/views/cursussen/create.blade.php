@@ -5,15 +5,15 @@
     <form action="{{ route('cursussen.store') }}" method="POST">
 
         <div class="form-group row">
-            <label class="col-sm-2 col-form-label" for="cursussen">Cursus naam</label>
+            <label class="col-sm-2 col-form-label" for="naam_cursus">Cursus naam</label>
             <div class="col-sm-10">
-                <input name="cursussen" type="text" class="form-control" required
+                <input name="naam_cursus" type="text" class="form-control" required
                     placeholder="Geef de cursus een naam" />
                 <small class="form-text text-muted">De naam van de cursus.</small>
             </div>
         </div>
 
-        <div class="form-group row">
+        <!-- <div class="form-group row">
             <label class="col-sm-2 col-form-label" for="klassen">Klas</label>
             <div class="col-sm-10">
                 <select name="klassen" class="form-control" id="" required>
@@ -23,7 +23,7 @@
                 </select>
                 <small class="form-text text-muted">De verschillende klassen.</small>
             </div>
-        </div>
+        </div> -->
 
         <div class="form-group row">
             <label class="col-sm-2 col-form-label" for="start">Start Date</label>
@@ -41,17 +41,17 @@
             </div>
         </div>
 
-        <div class="form-group row">
-            <label class="col-sm-2 col-form-label" for="docent_id">User</label>
+        <!-- <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="id">User</label>
             <div class="col-sm-10">
-                <select name="docent_id" class="form-control" id="docent_id" required>
-                    @foreach($docenten as $id => $display)
-                    <option value="{{ $id }}">{{ $display }}</option>
+                <select name="docenten" class="form-control" id="" required>
+                    @foreach($docenten as $docent_id => $display)
+                    <option value="{{ $docent_id }}">{{ $display }}</option>
                     @endforeach
                 </select>
-                <small class="form-text text-muted">The user booking the room.</small>
+                <small class="form-text text-muted">De docent die de cursus heeft gemaakt.</small>
             </div>
-        </div>
+        </div> -->
 
         <div class="form-group row">
             <label class="col-sm-2 col-form-label" for="commentaar">Commentaar</label>
@@ -61,9 +61,8 @@
             </div>
         </div>
 
-        <!-- <input type="hidden" name="is_reservation" value="1"/> -->
+        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
-        <!-- @csrf -->
 
         <div class="form-group row">
             <div class="col-sm-3">

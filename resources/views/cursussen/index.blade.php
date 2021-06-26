@@ -11,8 +11,9 @@
             <th>Naam</th>
             <th>Start datum</th>
             <th>Eind datum</th>
-            <th>Leerjaar</th>
             <th>Afgerond?</th>
+            <th>Commentaar</th>
+            <th>Aangepast</th>
             <th class="Actions">Actions</th>
         </tr>
     </thead>
@@ -24,6 +25,7 @@
                 <td>{{ date('F d, Y', strtotime($cursusweb->start)) }}</td>
                 <td>{{ date('F d, Y', strtotime($cursusweb->end)) }}</td>
                 <td>{{ $cursusweb->is_afgerond ? 'Yes' : 'No' }}</td>
+                <td>{{ $cursusweb->commentaar }}</td>
                 <td>{{ date('F d, Y', strtotime($cursusweb->created_at)) }}</td>
                 <td class="actions">
                     <a
