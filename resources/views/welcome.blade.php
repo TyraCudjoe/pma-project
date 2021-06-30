@@ -23,8 +23,33 @@
                 doormiddel van inloggen.</p>
         </div>
         <div class="col-md-5">
-            <img style="width: 100%; height: auto;" src="/img/Daltonlaan-opti.jpg" alt="">
+            <img style="width: 100%; height: auto; margin-bottom: 30px;" src="/img/Daltonlaan-opti.jpg" alt="">
         </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            <div class="card" style="width: 100%; height: auto; margin-right: auto;">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-6 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            <div class="card" style="width: 100%; height: auto;  margin-left: auto;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>        
     </div>
 
 
