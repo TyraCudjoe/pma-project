@@ -117,7 +117,7 @@
             <div>
 
             </div>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="collapse navbar-collapse" id="navbarCollapse" >
                 <ul class="navbar-nav">
                     <!-- Authentication Links -->
                     @if (Route::has('login'))
@@ -135,18 +135,16 @@
                         <a class="nav-link active" aria-current="page" href="{{ url('/') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Opleidingen</a>
+                        <a class="nav-link active" aria-current="page" href="{{ route('cursussen.index') }}">Cursussen</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Cursussen</a>
-                    </li>
-                    <li class="nav-item">
+                    
+                    <li class="nav-item" >
                         <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
                       document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
                         </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                         </form>
                     </li>
                     @endguest

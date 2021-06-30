@@ -11,6 +11,8 @@
 |
 */
 
+use App\Http\Controllers\Auth\LoginController;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -24,4 +26,6 @@ Route::get('/test', function(){return "goodbye";} );
 Route::get('/opdrachtenweb', 'ShowOpdrachtenWebController');
 
 Route::resource('/cursussen', 'CursusController');
+
+Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 ?>

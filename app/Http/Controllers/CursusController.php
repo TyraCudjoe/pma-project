@@ -15,9 +15,9 @@ class CursusController extends Controller
      */
     public function index()
     {
-        $cursusweb = DB::table('cursussen')->get();
+        $cursusWeb = DB::table('cursussen')->get();
         return view('cursussen.index')
-            ->with('cursusweb', $cursusweb);
+            ->with('cursusWeb', $cursusWeb);
     }
 
     /**
@@ -27,12 +27,12 @@ class CursusController extends Controller
      */
     public function create()
     {
-        $klassen = DB::table('klassen')->get()->pluck('name', 'id')->prepend('none');
-        $docenten = DB::table('docenten')->get()->pluck('name', 'id')->prepend('none');
+        $cursussen = DB::table('cursussen')->get()->pluck('naam_cursus', 'id', 'start', 'end', 'commentaar')->prepend('none');
+        // $docenten = DB::table('docenten')->get()->pluck('name', 'id')->prepend('none');
         return view('cursussen.create')
-            ->with('klassen', $klassen)
-            ->with('docenten', $docenten);
-        }
+            ->with('cursussen', $cursussen);
+            // ->with('docenten', $docenten);
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -63,7 +63,7 @@ class CursusController extends Controller
      */
     public function show(cursusWeb $cursusWeb)
     {
-        //
+        return view('cursussen.show', ['cursusWeb' => $cursusWeb] );
     }
 
     /**
@@ -74,8 +74,16 @@ class CursusController extends Controller
      */
     public function edit(cursusWeb $cursusWeb)
     {
-        //
+        $cursussen = DB::table('cursussen')->get()->pluck( 'id', 'naam_cursus', 'start', 'end', 'commentaar')->prepend('none');
+        // $klassen = DB::table('klassen')->get()->pluck('name', 'id')->prepend('none');
+        // $docenten = DB::table('docenten')->get()->pluck('name', 'id')->prepend('none');
+        $cursusUser = DB::table('cursus_users')->where('cursus_id', $cursusWeb->id)->first();
+        return view('cursussen.edit')
+            ->with('cursussen', $cursussen)
+            ->with('cursus_users', $cursusUser)
+            ->with('cursusWeb', $cursusWeb);
     }
+    
 
     /**
      * Update the specified resource in storage.
@@ -86,7 +94,18 @@ class CursusController extends Controller
      */
     public function update(Request $request, cursusWeb $cursusWeb)
     {
-        //
+        DB::table('cursussen') 
+        ->where('id', $cursusWeb->id)
+        ->update([
+            'naam_cursus' => $request->input('naam_cursus'),
+            'start' => $request->input('start'),
+            'end' => $request->input('end'),
+            'commentaar' => $request->input('commentaar'),
+        ]);
+        DB::table('cursus_users')
+        ->where('id', $cursusWeb->web)
+        ->update([]);
+        return redirect()->action('CursusController@index');
     }
 
     /**
@@ -97,6 +116,8 @@ class CursusController extends Controller
      */
     public function destroy(cursusWeb $cursusWeb)
     {
-        //
+        DB::table('cursus_users')->where('id', $cursusWeb->id)->delete();
+        DB::table('cursussen')->where('id', $cursusWeb->id)->delete();
+        return redirect()->action('CursusController@index');
     }
 }
