@@ -23,7 +23,7 @@
                 doormiddel van inloggen.</p>
         </div>
         <div class="col-md-5">
-            <img style="width: 100%; height: auto; margin-bottom: 30px;" src="/img/Daltonlaan-opti.jpg" alt="">
+            <img style="width: 100%; height: auto; margin-bottom: 30px; box-shadow: 7px 10px 5px grey;" src="/img/Daltonlaan-opti.jpg" alt="">
         </div>
     </div>
 
