@@ -23,9 +23,8 @@
                 doormiddel van inloggen.</p>
         </div>
         <div class="col-md-5">
-            <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.flexas.nl%2Fkantoorruimte%2Futrecht%2Fdaltonlaan-300&psig=AOvVaw2Z7pCwJUTwFFXSWIKm6QFs&ust=1623416346605000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCPCciKmPjfECFQAAAAAdAAAAABAD" alt="">
+            <img style="width: 100%; height: auto;" src="/img/Daltonlaan-opti.jpg" alt="">
         </div>
-
     </div>
 
 
