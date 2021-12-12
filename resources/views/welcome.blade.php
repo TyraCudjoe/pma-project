@@ -33,7 +33,7 @@
         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
             <div class="card home-card" style="margin-right: auto;">
                 <div class="card-body">
-                    <p class="">Click the button down below to login.</p>
+                    <p class="">Click the button below to login.</p>
                     <a href="{{ route('login') }}" class="btn btn-primary">Login</a>
                 </div>
             </div>

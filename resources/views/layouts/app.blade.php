@@ -137,8 +137,11 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{{ route('cursussen.index') }}">Cursussen</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{ route('admin') }}">admin</a>
+                    </li>
                     
-                    <li class="nav-item" >
+                    <li class="nav-item logout" >
                         <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
                       document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}

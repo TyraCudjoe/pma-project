@@ -28,4 +28,10 @@ Route::get('/opdrachtenweb', 'ShowOpdrachtenWebController');
 Route::resource('/cursussen', 'CursusController');
 
 Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+
+Route::get('/admin', 'AdminController@index')->name('admin')->middleware('admin');
+Route::get('/moderator', 'ModeratorController@index')->name('moderator')->middleware('moderator');
+Route::get('/docenten', 'DocentenController@index')->name('docenten')->middleware('docenten');
+Route::get('/leerlingen', 'LeerlingenController@index')->name('leerlingen')->middleware('leerlingen');
+
 ?>
